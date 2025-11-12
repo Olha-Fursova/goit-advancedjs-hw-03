@@ -34,7 +34,7 @@ main:has(.back-link) {
   text-align: center;
 }
 
-.search-form {
+.form {
   font-family: var(--font-family);
   display: flex;
   align-items: center;
