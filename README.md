@@ -1,113 +1,74 @@
-# Vanilla App Template
+# HTTP Requests & Backend Interaction (Image Search App)
 
-Цей проект було створено за допомогою Vite. Для знайомства та налаштування
-додаткових можливостей [звернись до документації](https://vitejs.dev/).
+### Project Overview
 
-## Створення репозиторію за шаблоном
+After learning how HTTP works, what CRUD means, and how frontend communicates with backend services, this homework puts theory into practice. The result is a fully functional Image Search Application that sends HTTP requests to a real API and processes server responses, renders dynamic content, displays notifications, uses a loader during async operations and opens images in a lightbox gallery.
 
-Використовуй цей репозиторій організації GoIT як шаблон для створення
-репозиторію свого проекту. Для цього натисни на кнопку `«Use this template»` і
-обери опцію `«Create a new repository»`, як показано на зображенні.
+This project simulates real-world frontend development where the client interacts with an external service.
 
-![Creating repo from a template step 1](./assets/template-step-1.png)
+### Learning Objectives
 
-На наступному етапі відкриється сторінка створення нового репозиторію. Заповни
-поле його імені, переконайся, що репозиторій публічний, після чого натисни
-кнопку `«Create repository from template»`.
+By completing this homework, I reinforced my understanding of:
 
-![Creating repo from a template step 2](./assets/template-step-2.png)
+- The difference between HTTP and HTTPS
 
-Після того, як репозиторій буде створено, необхідно перейти в налаштування
-створеного репозиторію на вкладку `Settings` > `Actions` > `General` як показано
-на зображенні.
+- Common HTTP methods (GET, POST, PUT, DELETE)
 
-![Settings GitHub Actions permissions step 1](./assets/gh-actions-perm-1.png)
+- What CRUD operations represent
 
-Проскроливши сторінку до самого кінця, в секції `«Workflow permissions»` обери
-опцію `«Read and write permissions»` і постав галочку в чекбоксі. Це необхідно
-для автоматизації процесу деплою проекту.
+- How frontend communicates with backend APIs
 
-![Settings GitHub Actions permissions step 2](./assets/gh-actions-perm-2.png)
+- How to structure code using modules
 
-Тепер у тебе є особистий репозиторій проекту, зі структурою файлів та папок
-репозиторію-шаблону. Далі працюй з ним, як з будь-яким іншим особистим
-репозиторієм, клонуй його собі на комп'ютер, пиши код, роби коміти та відправляй
-їх на GitHub.
+- How to work with asynchronous requests
 
-## Підготовка до роботи
+- How to handle server responses and errors
 
-1. Переконайся, що на комп'ютері встановлено LTS-версію Node.js.
-   [Скачай та встанови](https://nodejs.org/en/) її якщо необхідно.
-2. Встанови базові залежності проекту в терміналі командою `npm install`.
-3. Запусти режим розробки, виконавши в терміналі команду `npm run dev`.
-4. Перейдіть у браузері за адресою
-   [http://localhost:5173](http://localhost:5173). Ця сторінка буде автоматично
-   перезавантажуватись після збереження змін у файли проекту.
+- How to integrate third-party libraries
 
-## Файли і папки
+## Project Structure
+goit-advancedjs-hw-03/
 
-- Файли розмітки компонентів сторінки повинні лежати в папці `src/partials` та
-  імпортуватись до файлу `index.html`. Наприклад, файл з розміткою хедера
-  `header.html` створюємо у папці `partials` та імпортуємо в `index.html`.
-- Файли стилів повинні лежати в папці `src/css` та імпортуватись до HTML-файлів
-  сторінок. Наприклад, для `index.html` файл стилів називається `index.css`.
-- Зображення додавай до папки `src/img`. Збирач оптимізує їх, але тільки при
-  деплої продакшн версії проекту. Все це відбувається у хмарі, щоб не
-  навантажувати твій комп'ютер, тому що на слабких компʼютерах це може зайняти
-  багато часу.
+├── index.html 
+├── js/ 
+│   ├── main.js 
+│   ├── pixabay-api.js 
+│   └── render-functions.js 
+├── css/ 
+├── .gitignore 
+├── .prettierrc 
+└── README.md 
 
-## Деплой
+## Image Search App
 
-Продакшн версія проекту буде автоматично збиратися та деплоїтись на GitHub
-Pages, у гілку `gh-pages`, щоразу, коли оновлюється гілка `main`. Наприклад,
-після прямого пуша або прийнятого пул-реквесту. Для цього необхідно у файлі
-`package.json` змінити значення прапора `--base=/<REPO>/`, для команди `build`,
-замінивши `<REPO>` на назву свого репозиторію, та відправити зміни на GitHub.
+The application allows users to enter a keyword in a search field and send a request to the Pixabay API. After receiving matching images: view them in a styled gallery. User also can open large versions of an image in a modal window. 
 
-```json
-"build": "vite build --base=/<REPO>/",
-```
+### How to Run
 
-Далі необхідно зайти в налаштування GitHub-репозиторію (`Settings` > `Pages`) та
-виставити роздачу продакшн версії файлів з папки `/root` гілки `gh-pages`, якщо
-це не було зроблено автоматично.
+1. Clone the repository.
 
-![GitHub Pages settings](./assets/repo-settings.png)
+2. Install dependencies:
 
-### Статус деплою
+npm install
 
-Статус деплою крайнього коміту відображається іконкою біля його ідентифікатора.
+3. Start development server:
 
-- **Жовтий колір** - виконується збірка та деплой проекту.
-- **Зелений колір** - деплой завершився успішно.
-- **Червоний колір** - під час лінтингу, збірки чи деплою сталася помилка.
+npm run dev
 
-Більш детальну інформацію про статус можна переглянути натиснувши на іконку, і в
-вікні, що випадає, перейти за посиланням `Details`.
+4. Open the local development URL provided by Vite
 
-![Deployment status](./assets/deploy-status.png)
+## Conclusion
 
-### Жива сторінка
+Homework strengthened my understanding of:
 
-Через якийсь час, зазвичай кілька хвилин, живу сторінку можна буде подивитися за
-адресою, вказаною на вкладці `Settings` > `Pages` в налаштуваннях репозиторію.
-Наприклад, ось посилання на живу версію для цього репозиторію
+- Client–server communication
 
-[https://goitacademy.github.io/vanilla-app-template/](https://goitacademy.github.io/vanilla-app-template/).
+- API integration
 
-Якщо відкриється порожня сторінка, переконайся, що у вкладці `Console` немає
-помилок пов'язаних з неправильними шляхами до CSS та JS файлів проекту
-(**404**). Швидше за все у тебе неправильне значення прапора `--base` для
-команди `build` у файлі `package.json`.
+- Modular architecture
 
-## Як це працює
+- Async/await workflows
 
-![How it works](./assets/how-it-works.png)
+- User experience during data fetching
 
-1. Після кожного пуша у гілку `main` GitHub-репозиторію, запускається
-   спеціальний скрипт (GitHub Action) із файлу `.github/workflows/deploy.yml`.
-2. Усі файли репозиторію копіюються на сервер, де проект ініціалізується та
-   проходить лінтинг та збірку перед деплоєм.
-3. Якщо всі кроки пройшли успішно, зібрана продакшн версія файлів проекту
-   відправляється у гілку `gh-pages`. В іншому випадку, у лозі виконання скрипта
-   буде вказано в чому проблема.
+- Clean project organization with Vite
